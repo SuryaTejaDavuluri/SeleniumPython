@@ -4,13 +4,18 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 import time
 
+options = webdriver.ChromeOptions()
+options.headless = True
+
 browser = "chrome"
 if browser == "chrome":
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 elif browser == "edge":
     driver = webdriver.Edge(EdgeChromiumDriverManager().install())
 else:
     raise Exception("Check the driver")
+
+driver.implicitly_wait(10)
 driver.maximize_window()
 driver.get("https://www.seleniumeasy.com/test/")
 print(driver.title)
