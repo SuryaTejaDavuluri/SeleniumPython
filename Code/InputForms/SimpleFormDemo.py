@@ -5,6 +5,7 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 import xlrd
+import pytest
 
 browser = "edge"
 if browser == "chrome":
@@ -29,7 +30,7 @@ driver.find_element(By.LINK_TEXT, 'Simple Form Demo').click()
 buttons = driver.find_elements(By.XPATH, '//button[@type="button" and @class="btn btn-default"]')
 
 
-def single_input_field(value):
+def test_single_input_field(value):
     driver.find_element(By.ID, 'user-message').clear()
     driver.find_element(By.ID, 'user-message').send_keys(value)
     for i in buttons:
@@ -44,7 +45,7 @@ def single_input_field(value):
         print("Text MisMatched")
 
 
-def two_input_field(value1, value2):
+def test_two_input_field(value1, value2):
     driver.find_element(By.ID, 'sum1').clear()
     driver.find_element(By.ID, 'sum1').send_keys(value1)
     driver.find_element(By.ID, 'sum2').clear()
@@ -60,7 +61,7 @@ def two_input_field(value1, value2):
         print("Value MisMatched")
 
 
-workbook = xlrd.open_workbook("C:/Users/RC08508/PycharmProjects/SeleniumPython/TestData/testdata.xlsx")
+workbook = xlrd.open_workbook("/TestData/testdata.xlsx")
 sheet = workbook.sheet_by_name("SimpleDemo")
 
 rowCount = sheet.nrows
@@ -73,8 +74,8 @@ for curr_row in range(1, rowCount):
     twoInputA = sheet.cell_value(curr_row, 1)
     twoInputB = sheet.cell_value(curr_row, 2)
 
-    single_input_field(simpleInput)
-    two_input_field(twoInputA, twoInputB)
+    test_single_input_field(simpleInput)
+    test_two_input_field(twoInputA, twoInputB)
 
 # driver.get_screenshot_as_file('pic2.png')
 

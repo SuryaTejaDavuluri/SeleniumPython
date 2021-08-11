@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 import time
+import pytest
 
 options = webdriver.ChromeOptions()
 options.headless = True
@@ -60,5 +61,4 @@ def select_options(element_list, value):
 
 select_options(checkboxes, ['Option 1', 'Option 4'])
 select_options(checkboxes, ['all'])
-time.sleep(20)
 driver.quit()

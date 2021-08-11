@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 import time
+import pytest
 
 options = webdriver.ChromeOptions()
 options.headless = False
@@ -60,5 +61,4 @@ dropdown_with_multi(['Connecticut', 'Kentucky'])
 dropdown_with_disabled('Puerto Rico')
 dropdown_with_category('Ruby')
 
-time.sleep(20)
 driver.quit()

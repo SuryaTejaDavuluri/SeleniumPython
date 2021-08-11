@@ -8,6 +8,7 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 import xlrd
+import pytest
 
 
 options = webdriver.ChromeOptions()
@@ -122,7 +123,7 @@ def multiselect_without_select(element, value, result):
 # multiselect_with_selectoptions(multi_select_states, ['California', 'New York'], states_chosen)
 # multiselect_without_select(states_list, ['New Jersey', 'Pennsylvania'], states_chosen)
 
-workbook = xlrd.open_workbook("C:/Users/RC08508/PycharmProjects/SeleniumPython/TestData/testdata.xlsx")
+workbook = xlrd.open_workbook("/TestData/testdata.xlsx")
 sheet = workbook.sheet_by_name("SelectDropdown")
 
 rowCount = sheet.nrows

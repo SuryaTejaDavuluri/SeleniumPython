@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 import time
+import pytest
 
 
 options = webdriver.ChromeOptions()
@@ -49,5 +50,4 @@ def radiobutton_group(sex, age):
 radiobutton_single(['Male', 'Female'])
 radiobutton_group(['Male', 'Female'], ['0 - 5', '5 - 15', '15 - 50'])
 
-time.sleep(10)
 driver.quit()

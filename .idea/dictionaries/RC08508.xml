@@ -10,6 +10,8 @@
       <w>multiselect</w>
       <w>optgroup</w>
       <w>selectoptions</w>
+      <w>testdata</w>
+      <w>webdriver</w>
     </words>
   </dictionary>
 </component>
